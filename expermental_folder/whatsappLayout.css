@@ -1,0 +1,59 @@
+body{
+    background-color: grey;
+}
+
+div{
+    border: 3px solid white;
+    width: 250px;
+    height: 250px;
+    border: 2px solid greenyellow;
+}
+.insideContainers{
+  
+    position: absolute;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: blue;
+}
+div .insideContainers:hover{
+    background-color: black;
+    color: aliceblue;
+
+}
+#mainContainer{
+    width: 100%;
+    height: 900px;
+    position: relative;
+}
+#leftSide{
+    width: 340px;
+    top:70px;
+    left: 10px;
+    height: 750px;
+}
+#rightSide{
+    top: 0px;
+    width: 97%;
+    left: 10px;
+    height: 20px;
+}
+#send1{
+    width: 120px;
+    top: 85%;
+    height: 40px;
+    left: 90%;
+}
+#topSide{
+    
+    top: 85%;
+    left: 410px;
+    width: 65%;
+    height: 40px;
+}
+#bottomSide{
+    top:70px;
+    left: 400px;
+    height: 750px;
+    bottom: 100px;    
+    width: 76%;
+}
