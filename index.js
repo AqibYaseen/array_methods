@@ -34,6 +34,7 @@ document.getElementById("rm_after").onclick=function(){
         window.alert('Array is Empty!!!!!');
         shwarray();
 }
+
 document.getElementById("show_array").onclick=function(){
     if(array1.length!=0){
         array1.sort((a,b)=>a-b);
@@ -43,6 +44,32 @@ document.getElementById("show_array").onclick=function(){
         shwarray();
 
 }
+
+document.getElementById("add_at").onclick=function(){
+    if(array1.length!=0){
+        let userInput=window.prompt("Enter index at which you want to add :");
+        let userInputValue=window.prompt("Enter index at which you want to add :");
+
+        array1.splice(userInput,0,userInputValue);
+        shwarray();
+    }else
+        window.alert('Array is Empty!!!!!');
+        shwarray();
+
+}
+document.getElementById("rm_at").onclick=function(){
+    if(array1.length!=0){
+        let indexToRemFrom=window.prompt("Enter index at which you want to remove items :");
+        let numOfItems=window.prompt("Enter the number of items to remove :");
+
+        array1.splice(indexToRemFrom,numOfItems);
+        shwarray();
+    }else
+        window.alert('Array is Empty!!!!!');
+        shwarray();
+
+}
+
 document.getElementById("rev_array").onclick=function(){
     if(array1.length!=0){
         array1.reverse();
