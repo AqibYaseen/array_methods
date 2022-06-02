@@ -2,19 +2,18 @@
 
 let array1= [];
 let array2= [8,4,6,8,2,1,3,4,5,8,6,4,8,9,7,5,3,0]
-let array3= [];
 
 document.getElementById("insert_before").onclick=function(){
     let valInsertBef = window.prompt('Enter Value to insert in Front of Array :');
     if(valInsertBef!=null){
-    array1.unshift(valInsertBef);    
+    array1.unshift(parseInt(valInsertBef));    
     shwarray();
     }
 }
 document.getElementById("insert_after").onclick=function(){
     let valInsertaft = window.prompt('Enter Value to insert at Back of Array :');
     if(valInsertaft!=null){
-    array1.push(valInsertaft);
+    array1.push(parseInt(valInsertaft));
     shwarray();
     }
 }
@@ -50,7 +49,7 @@ document.getElementById("add_at").onclick=function(){
         let userInput=window.prompt("Enter index at which you want to add :");
         let userInputValue=window.prompt("Enter index at which you want to add :");
 
-        array1.splice(userInput,0,userInputValue);
+        array1.splice(userInput,0,parseInt(userInputValue));
         shwarray();
     }else
         window.alert('Array is Empty!!!!!');
@@ -86,7 +85,19 @@ document.getElementById("rev_array").onclick=function(){
 //     window.alert('Hover')
 // }
 
-document.getElementById("show_array_div").onclick = function fun2(){
+
+document.getElementById("add_to").onclick = function(){
+    let userInput = window.prompt('Eneter value to add to each element: ');
+    array1.forEach(arrayFun);
+    function arrayFun(val,index){
+        array1[index] = val+1;
+    }
+    shwarray();
+}
+
+
+
+document.getElementById("show_array_div").onclick = function(){
         for(let x2=0;x2<10;x2++)
             array1= array2;
             shwarray();
@@ -94,11 +105,11 @@ document.getElementById("show_array_div").onclick = function fun2(){
     
 function shwarray(){
     document.getElementById("show_array_div").innerHTML=array1;
-
+    console.log(array1);
 }
 document.getElementById("del_array").onclick=function(){
     if(array1.length!=0){
-        array1=array3;
+        array1.splice(0,array1.length);
         shwarray();
     }else
         window.alert('Array is Empty!!!!!');
