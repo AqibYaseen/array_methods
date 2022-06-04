@@ -1,23 +1,35 @@
 
-
 let array1= [];
 let array2= [8,4,6,8,2,1,3,4,5,8,6,4,8,9,7,5,3,0]
 
-document.getElementById("insert_before").onclick=function(){
+// Inserts value in front of array using unshift(); method
+
+document.getElementById("insert_before").onclick=()=>{
     let valInsertBef = window.prompt('Enter Value to insert in Front of Array :');
-    if(valInsertBef!=null){
-    array1.unshift(parseInt(valInsertBef));    
-    shwarray();
+    if(isNaN(valInsertBef)){
+        alert("Enter a valid number")
+    }else{
+        array1.unshift(parseInt(valInsertBef));    
+        shwarray();
     }
 }
-document.getElementById("insert_after").onclick=function(){
+
+// Inserts value at END of array using push(); method
+
+document.getElementById("insert_after").onclick=()=>{
     let valInsertaft = window.prompt('Enter Value to insert at Back of Array :');
-    if(valInsertaft!=null){
-    array1.push(parseInt(valInsertaft));
-    shwarray();
-    }
+    let x = parseInt(valInsertaft);
+    if(isNaN(x)) {
+        alert("Enter a valid number")
+    }else{
+        array1.push(x);
+        shwarray();
+    } 
 }
-document.getElementById("rm_before").onclick=function(){
+
+// Removes element from front of array using shift(); method
+
+document.getElementById("rm_before").onclick=()=>{
     if(array1.length!=0){
         array1.shift();
         shwarray();
@@ -25,7 +37,10 @@ document.getElementById("rm_before").onclick=function(){
         window.alert('Array is Empty!!!!!');
         shwarray();
 }
-document.getElementById("rm_after").onclick=function(){
+
+// Removes element from back of array using pop(); method
+
+document.getElementById("rm_after").onclick=()=>{
     if(array1.length!=0){
         array1.pop();
         shwarray();
@@ -34,7 +49,9 @@ document.getElementById("rm_after").onclick=function(){
         shwarray();
 }
 
-document.getElementById("show_array").onclick=function(){
+// Sorts elements in array in accending order using sort(); method
+
+document.getElementById("show_array").onclick=()=>{
     if(array1.length!=0){
         array1.sort((a,b)=>a-b);
         shwarray();
@@ -44,7 +61,9 @@ document.getElementById("show_array").onclick=function(){
 
 }
 
-document.getElementById("add_at").onclick=function(){
+// Inserts value in array at any given index using splice(); method
+
+document.getElementById("add_at").onclick=()=>{
     if(array1.length!=0){
         let userInput=window.prompt("Enter index at which you want to add :");
         let userInputValue=window.prompt("Enter index at which you want to add :");
@@ -56,7 +75,10 @@ document.getElementById("add_at").onclick=function(){
         shwarray();
 
 }
-document.getElementById("rm_at").onclick=function(){
+
+// Removes value from array at any given index using splice(); method
+
+document.getElementById("rm_at").onclick=()=>{
     if(array1.length!=0){
         let indexToRemFrom=window.prompt("Enter index at which you want to remove items :");
         let numOfItems=window.prompt("Enter the number of items to remove :");
@@ -69,7 +91,9 @@ document.getElementById("rm_at").onclick=function(){
 
 }
 
-document.getElementById("rev_array").onclick=function(){
+// Reverses elements of array using reverse(); method
+
+document.getElementById("rev_array").onclick=()=>{
     if(array1.length!=0){
         array1.reverse();
         shwarray();
@@ -79,14 +103,9 @@ document.getElementById("rev_array").onclick=function(){
 
 }
 
+// Adds (+ increment) a value to each element of array by traversing the array using forEach(); method
 
-// let test1= document.getElementById("show_array");
-//     test1.onmouseover=function(){
-//     window.alert('Hover')
-// }
-
-
-document.getElementById("add_to").onclick = function(){
+document.getElementById("add_to").onclick = ()=>{
     let userInput = window.prompt('Eneter value to add to each element: ');
     array1.forEach(arrayFun);
     function arrayFun(val,index){
@@ -95,36 +114,42 @@ document.getElementById("add_to").onclick = function(){
     shwarray();
 }
 
+// Displays the value of static array inside of div 
 
-
-document.getElementById("show_array_div").onclick = function(){
-        for(let x2=0;x2<10;x2++)
-            array1= array2;
+document.getElementById("show_array_div").onclick = ()=>{    
+            array1 = array2;
             shwarray();
-    }
-    
-function shwarray(){
-    document.getElementById("show_array_div").innerHTML=array1;
-    console.log(array1);
-}
-document.getElementById("del_array").onclick=function(){
+}    
+
+// Deletes array using splice(); method "splice(index[0],items to delete = array1.length);" => deletes from 0 index the array.length elements i.e. all elements
+
+document.getElementById("del_array").onclick=()=>{
     if(array1.length!=0){
         array1.splice(0,array1.length);
         shwarray();
     }else
         window.alert('Array is Empty!!!!!');
         shwarray();
-
 }
-// let test1= document.getElementById("show_array");
-//     test1.onmouseover=function(){
-//     window.alert('Hover')
-// }
+// Sum of elements using reduce(); method
 
+document.getElementById("sum_elements").onclick=()=>{
+    if(array1.length!=0){
+        let result = array1.reduce(p,v=> p=p+v);
+        return result;
 
-    // if(array1.length!=0)
-    //     window.alert(array1);
-    // else
-    //     window.alert('Array is Empty!!!!!');
+        shwarray(result);
+    }else
+        window.alert('Array is Empty!!!!!');
+        shwarray();
+}
+// Show the current value of array inside the div using innerHTML component
+function shwarray(p){
+    
+    if(p>0){
+    document.getElementById("show_array_div").innerHTML=p;
 
-
+    }else{
+        document.getElementById("show_array_div").innerHTML=array1;
+    }
+}   

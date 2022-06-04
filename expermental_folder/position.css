@@ -1,0 +1,25 @@
+body{
+    background-color: grey;
+}
+
+.div_inside{
+    margin-left: 20;
+    width: 200px;
+    height: 200px;
+    border: 2px solid greenyellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#div_inside_3{
+    width: 100px;
+    height: 100px;
+}
+#div_outside{
+    border: 2px solid black;
+    display: flex;
+    justify-content:flex-start;
+    align-items: flex-start;
+    width: 1500px;
+    height: 800px;
+}
